@@ -198,20 +198,15 @@ class GradesWindow(QWidget):
             )
 
     def show_about(self):
-        QMessageBox.about(
-            self,
-            "About Grade Editor",
-            f"Grade Editor\nElad Sasson\nGitHub: {REPOSITORY}",
-        )
+        message = "Grade Editor\nElad Sasson\nGitHub: https://github.com/eladsasson1/grade-editor"
+        QMessageBox.about(self, "About Grade Editor", message)
 
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     app.setStyle("Fusion")
-
     style_path = Path(__file__).with_name("style.qss")
     app.setStyleSheet(style_path.read_text(encoding="utf-8"))
-
     window = GradesWindow()
     window.show()
     sys.exit(app.exec())
